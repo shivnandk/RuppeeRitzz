@@ -1,0 +1,1 @@
+web guicorn RuppeeRitzz.wsgi --log-file -
