@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from userauths.models import User
 from django.contrib import messages
 
+
 def RegisterView(request):
     if request.method=="POST":
       form=UserRegisterForm(request.POST)

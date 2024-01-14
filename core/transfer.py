@@ -22,7 +22,7 @@ def search_users_account_number(request):
     }
     return render(request, "transfer/search_users_account_number.html",context)
 
- 
+@login_required 
 def  AmountTransfer(request,account_number):
     try:
         account=Account.objects.get(account_number=account_number)
@@ -34,6 +34,7 @@ def  AmountTransfer(request,account_number):
     }
     return render(request,"transfer/amount-transfer.html",context)
 
+@login_required
 def AmountTransferProcess(request, account_number):
     account = Account.objects.get(account_number=account_number) ## Get the account that the money vould be sent to
     sender = request.user # get the person that is logged in
@@ -74,7 +75,7 @@ def AmountTransferProcess(request, account_number):
         return redirect("account:account")
 
 
-
+@login_required
 def TransferConfirmation(request, account_number,transaction_id):
     try:
         account=Account.objects.get(account_number=account_number)
@@ -89,6 +90,7 @@ def TransferConfirmation(request, account_number,transaction_id):
     }
     return render(request, "transfer/transfer-confirmation.html", context)
 
+@login_required
 def TransferProcess(request, account_number, transaction_id):
     account = Account.objects.get(account_number=account_number)
     transaction = Transactions.objects.get(transaction_id=transaction_id)
@@ -126,6 +128,7 @@ def TransferProcess(request, account_number, transaction_id):
             messages.warning(request,"An error occured , Try again later.")
             return redirect("account:account")    
 
+@login_required
 def TransferCompleted(request, account_number,transaction_id):
     try:
         account=Account.objects.get(account_number=account_number)

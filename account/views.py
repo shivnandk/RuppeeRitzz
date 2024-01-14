@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from core.forms import CreditCardForm
 
-# @login_required
+@login_required
 def account(request):
     if request.user.is_authenticated:
         try:
@@ -55,7 +55,7 @@ def kyc_registration(request):
     }       
     return render(request, "account/kyc-form.html",context)
 
-# @login_required
+@login_required
 def dashboard(request):
     if request.user.is_authenticated:
         try:

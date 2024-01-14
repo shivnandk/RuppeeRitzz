@@ -4,7 +4,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from account.models import Account
 from decimal import Decimal
- 
+
+@login_required 
 def card_detail(request, card_id):
     account = Account.objects.get(user=request.user)
     credit_card=CreditCard.objects.get(card_id=card_id, user=request.user)
@@ -16,6 +17,7 @@ def card_detail(request, card_id):
     
     return render(request, "credit_card/card-detail.html", context)
 
+@login_required
 def withdraw_fund(request, card_id):
     account = Account.objects.get(user=request.user)
     credit_card = CreditCard.objects.get(card_id=card_id, user=request.user)
@@ -46,7 +48,7 @@ def withdraw_fund(request, card_id):
             messages.warning(request, "Insufficient Funds")
             return redirect("core:card-detail", credit_card.card_id)
 
-
+@login_required
 def fund_credit_card(request, card_id):
     credit_card = CreditCard.objects.get(card_id=card_id, user=request.user)
     account = request.user.account
@@ -72,7 +74,8 @@ def fund_credit_card(request, card_id):
         else:
             messages.warning(request, "Insufficient Funds")
             return redirect("core:card-detail", credit_card.card_id)
-        
+
+@login_required        
 def delete_card(request, card_id):
     credit_card = CreditCard.objects.get(card_id=card_id, user=request.user)
     

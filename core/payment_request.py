@@ -25,6 +25,7 @@ def SearchUserRequest(request):
 
     return render(request, "payment_request/search-users.html",context)
 
+@login_required
 def AmountRequest(request, account_number):
     account=Account.objects.get(account_number=account_number)
     context={
@@ -34,6 +35,7 @@ def AmountRequest(request, account_number):
     return render(request, "payment_request/amount-request.html",context)
 
 
+@login_required
 def AmountRequestProcess(request, account_number):
     account = Account.objects.get(account_number=account_number)
 
@@ -65,6 +67,7 @@ def AmountRequestProcess(request, account_number):
         messages.warning(request, "Error Occurred. Try Again Later.")
         return redirect("account:dashboard")
 
+@login_required
 def AmountRequestConfirmation(request, account_number, transaction_id):
     account = Account.objects.get(account_number=account_number)
     transaction = Transactions.objects.get(transaction_id=transaction_id)
@@ -75,6 +78,7 @@ def AmountRequestConfirmation(request, account_number, transaction_id):
     }
     return render(request, "payment_request/amount-request-confirmation.html", context)
 
+@login_required
 def AmountRequestFinalProcess(request, account_number, transaction_id):
     account = Account.objects.get(account_number=account_number)
     transaction = Transactions.objects.get(transaction_id=transaction_id)
@@ -92,6 +96,7 @@ def AmountRequestFinalProcess(request, account_number, transaction_id):
             return redirect("account:dashboard")
 
 
+@login_required
 def RequestCompleted(request, account_number , transaction_id):
     transaction = Transactions.objects.get(transaction_id=transaction_id)
     account = Account.objects.get(account_number=account_number)
@@ -103,6 +108,7 @@ def RequestCompleted(request, account_number , transaction_id):
 
 ######################### Settled #######################
 
+@login_required
 def settlement_confirmation(request,account_number, transaction_id):
     transaction = Transactions.objects.get(transaction_id=transaction_id)
     account = Account.objects.get(account_number=account_number)
@@ -112,6 +118,7 @@ def settlement_confirmation(request,account_number, transaction_id):
     }
     return render(request, "payment_request/settlement-confirmation.html", context)
 
+@login_required
 def settlement_processing(request, account_number, transaction_id):
     account = Account.objects.get(account_number=account_number)
     transaction = Transactions.objects.get(transaction_id=transaction_id)
@@ -144,6 +151,7 @@ def settlement_processing(request, account_number, transaction_id):
         messages.warning(request, "Error Occured")
         return redirect("account:settlement-completed" , account.account_number, transaction.transaction_id)
 
+@login_required
 def SettlementCompleted(request, account_number ,transaction_id):
     account = Account.objects.get(account_number=account_number)
     transaction = Transactions.objects.get(transaction_id=transaction_id)
@@ -154,6 +162,7 @@ def SettlementCompleted(request, account_number ,transaction_id):
         }
     return render(request, "payment_request/settlement-completed.html", context)
 
+@login_required
 def DeletePaymentRequest(request, account_number ,transaction_id):
     account = Account.objects.get(account_number=account_number)
     transaction = Transactions.objects.get(transaction_id=transaction_id)
