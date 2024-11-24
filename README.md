@@ -1,4 +1,3 @@
-+++
 # RuppeeRitzz
 
 RuppeeRitzz is a Django-based web application designed to manage and facilitate various functionalities related to financial transactions, accounts, and user management.
@@ -149,4 +148,4 @@ We welcome contributions to improve RuppeeRitzz! Here's how you can contribute:
 This project is licensed under the [MIT License](LICENSE).
 
 Feel free to star ⭐ the repository if you find this project useful!
-+++
+
