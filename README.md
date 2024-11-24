@@ -1,6 +1,30 @@
++++
 # RuppeeRitzz
 
 RuppeeRitzz is a Django-based web application designed to manage and facilitate various functionalities related to financial transactions, accounts, and user management.
+
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![Django](https://img.shields.io/badge/Django-4.x-green)
+![License](https://img.shields.io/badge/License-MIT-brightgreen)
+
+---
+
+## Table of Contents
+- [Features](#features)
+- [Setup Instructions](#setup-instructions)
+  - [1. Clone the Repository](#1-clone-the-repository)
+  - [2. Create a Virtual Environment](#2-create-a-virtual-environment)
+  - [3. Activate the Virtual Environment](#3-activate-the-virtual-environment)
+  - [4. Install Dependencies](#4-install-dependencies)
+  - [5. Apply Database Migrations](#5-apply-database-migrations)
+  - [6. Create a Superuser](#6-create-a-superuser)
+  - [7. Run the Development Server](#7-run-the-development-server)
+  - [Access the Admin Panel](#access-the-admin-panel)
+- [Technologies Used](#technologies-used)
+- [Contributing](#contributing)
+- [License](#license)
+
+---
 
 ## Features
 
@@ -8,6 +32,8 @@ RuppeeRitzz is a Django-based web application designed to manage and facilitate 
 - **Transaction Management:** Track and manage financial transactions effortlessly.
 - **Admin Panel:** User-friendly Django admin interface for managing users, transactions, and other data.
 - **Customizable UI:** Modern, intuitive design powered by Jazzmin.
+
+---
 
 ## Setup Instructions
 
@@ -85,6 +111,8 @@ Visit the admin panel at:
 [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/)  
 Log in using the superuser credentials you created.
 
+---
+
 ## Technologies Used
 
 - **Django**: High-level Python web framework.
@@ -92,6 +120,8 @@ Log in using the superuser credentials you created.
 - **Django Import-Export**: Seamless import/export functionality for data.
 - **Pillow**: Python Imaging Library for handling image files.
 - **ShortUUID**: Library for generating short, unique identifiers.
+
+---
 
 ## Contributing
 
@@ -114,7 +144,9 @@ We welcome contributions to improve RuppeeRitzz! Here's how you can contribute:
 
 ---
 
-Feel free to star ⭐ the repository if you find this project useful!
-``` 
+## License
 
-You can copy this directly to your `README.md` file. Let me know if you want further customization!
+This project is licensed under the [MIT License](LICENSE).
+
+Feel free to star ⭐ the repository if you find this project useful!
++++
